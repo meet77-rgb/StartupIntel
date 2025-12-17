@@ -1,0 +1,5 @@
+StartupIntel is an automated startup intelligence pipeline that discovers recently funded startups by scanning global funding news and extracting structured company-level signals. 
+The pipeline ingests recent articles from the GDELT news index, extracts clean article text, and uses a large language model to identify startups, funding amounts, funding rounds, investors, and funding dates. 
+It is designed to correctly handle both single-company funding articles and multi-startup funding roundups, producing a startup-level dataset rather than an article-level one.
+The system deduplicates startups across all articles, enriches each unique company with its official website, career page, and a technical hiring signal, and outputs the final dataset to both a Google Sheet and a local CSV file. 
+StartupIntel is built using Python, OpenAI’s API for information extraction, LangGraph for pipeline orchestration, DuckDuckGo search for domain discovery, and the Google Sheets API for data delivery, mirroring how real-world venture sourcing and market intelligence pipelines are structured.
