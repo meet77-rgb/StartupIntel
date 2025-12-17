@@ -1,5 +1,13 @@
-StartupIntel operates through a single orchestrated pipeline defined in langraph_startups.py. 
-The pipeline begins by querying recent startup funding articles from the GDELT news API, then downloads and cleans each article’s content using web scraping and text extraction utilities. 
-An OpenAI-powered extraction step parses each article to identify all startups mentioned along with their funding details, correctly handling both single-startup articles and multi-startup roundups. 
-The extracted startup records are normalized and deduplicated in-memory to ensure each company appears only once per run. For every unique startup, the pipeline performs enrichment by discovering the official company domain, locating the careers page, and scanning for technical hiring signals. 
-Once processing is complete, the final structured dataset is written to a local CSV file (startup_signals.csv) for offline use and simultaneously pushed to a newly created Google Sheet using OAuth credentials stored in client_secret.json and token.json, with runtime secrets managed via the .env file.
+GDELT News Search
+        ↓
+Article Text Extraction
+        ↓
+OpenAI Funding Extraction
+        ↓
+Multi-Startup Normalization
+        ↓
+Startup Deduplication
+        ↓
+Domain + Hiring Enrichment
+        ↓
+CSV + Google Sheets Output
